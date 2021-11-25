@@ -1,0 +1,8 @@
+<p> {{name | uppercase}}</p>
+<p>saisie-client works!</p>
+<button [disabled] = "isValid()" (click) = "onClick()">Envoyer</button>
+<input type="text" [(ngModel)]="name">
+<app-adresse [nom]="name" *ngIf="name == 'toto'"></app-adresse>
+
+<app-adresse *ngFor= "let c of listName" [nom]="c"></app-adresse>
+

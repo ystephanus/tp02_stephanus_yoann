@@ -1,0 +1,27 @@
+<p>formulaire works!</p>
+<label>Nom</label><input type="text" [(ngModel)]="nom"><br/>
+<label>Prenom</label><input type="text" [(ngModel)]="prenom"> <br/>
+<label for="">Adresse</label> <input type="text" [(ngModel)]="adresse"><br/>
+<label>Code Postal</label><input type="text" [(ngModel)]="cp"><br/>
+<label for="">Ville</label><input type="text" [(ngModel)]="ville"><br/>
+<label for="">Pays</label><input type="text" [(ngModel)]="pays"><br>
+<label for="">Telephone</label><input type="tel" [(ngModel)]="tel" pattern="[0-9]{10}"><br/>
+<label for="">Mél</label><input type="email" [(ngModel)]="mel"><br/>
+<label for="">Civilité</label><input type="text" [(ngModel)]="civilite"><br/>
+<label for="">Nom utilisateur</label><input type="text" [(ngModel)]="username"><br>
+<label>Mot de passe</label> <input type="password" [(ngModel)]="password"><br>
+<button (click)="submitForm()" >Validation</button>
+<app-recapitulation 
+    *ngIf="isValid == true" 
+    [nom]="nom"
+    [prenom]="prenom"
+    [adresse]="adresse"
+    [cp]="cp"
+    [ville]="ville"
+    [pays]="pays"
+    [mel]="mel"
+    [tel]="tel"
+    [civilite]="civilite"
+    [username]="username"
+    [password]="password"
+></app-recapitulation>
