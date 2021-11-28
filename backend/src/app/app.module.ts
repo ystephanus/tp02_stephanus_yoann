@@ -9,6 +9,7 @@ import { TetiereComponent } from './tetiere/tetiere.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { RecapitulationComponent } from './recapitulation/recapitulation.component';
+import { ErrorsDirective } from './errors.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RecapitulationComponent } from './recapitulation/recapitulation.compone
     TetiereComponent,
     FooterComponent,
     FormulaireComponent,
-    RecapitulationComponent
+    RecapitulationComponent,
+    ErrorsDirective
   ],
   imports: [
     BrowserModule,
