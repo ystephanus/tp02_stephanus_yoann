@@ -11,6 +11,7 @@ import { FormulaireComponent } from './formulaire/formulaire.component';
 import { RecapitulationComponent } from './recapitulation/recapitulation.component';
 import { ErrorsDirective } from './errors.directive';
 import { PhoneNumberPipe } from './phone-number.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PhoneNumberPipe } from './phone-number.pipe';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

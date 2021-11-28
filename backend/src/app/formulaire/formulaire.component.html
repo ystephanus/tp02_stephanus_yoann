@@ -1,29 +1,29 @@
 <p>formulaire works!</p>
-<form (ngSubmit)="submitForm()" ngNativeValidate>
-    <label>Nom</label> <input type="text" [(ngModel)]="nom" name="nom" required><br/>
-    <label>Prenom</label> <input type="text" [(ngModel)]="prenom" name="prenom" required> <br/>
-    <label for="">Adresse</label> <input type="text" [(ngModel)]="adresse" name="adresse" required> <br/>
-    <label>Code Postal</label> <input type="text" [(ngModel)]="cp" name="cp" required> <br/>
-    <label for="">Ville</label> <input type="text" [(ngModel)]="ville" name="ville" required> <br/>
-    <label for="">Pays</label> <input type="text" [(ngModel)]="pays" name="pays" required> <br>
-    <label for="">Telephone</label> <input type="tel" [(ngModel)]="tel" name="tel" pattern="[0-9]{10}" required> <br/>
-    <label for="">Mél</label> <input type="email" email [(ngModel)]="mel" name="mel" required> <br/>
-    <label for="">Civilité</label> <input type="text" [(ngModel)]="civilite" name="civilite" required> <br/>
-    <label for="">Nom utilisateur</label> <input type="text" [(ngModel)]="username" name="username" required> <br>
-    <label>Mot de passe</label> <input type="password" [(ngModel)]="password" name="password" required> <br>
-    <button type="submit">Validation</button>
+<form (ngSubmit)="submitForm()" [formGroup]="profileForm">
+    <label>Nom</label> <input type="text" formControlName="nom" required><br/>
+    <label>Prenom</label> <input type="text" formControlName="prenom"  required> <br/>
+    <label for="">Adresse</label> <input type="text" formControlName="adresse" required> <br/>
+    <label>Code Postal</label> <input type="text" formControlName="cp"  required> <br/>
+    <label for="">Ville</label> <input type="text" formControlName="ville"  required> <br/>
+    <label for="">Pays</label> <input type="text" formControlName="pays"  required> <br>
+    <label for="">Telephone</label> <input type="tel" formControlName="tel"  pattern="[0-9]{10}" required> <br/>
+    <label for="">Mél</label> <input type="email" email formControlName="mel"  required> <br/>
+    <label for="">Civilité</label> <input type="text" formControlName="civilite"  required> <br/>
+    <label for="">Nom utilisateur</label> <input type="text" formControlName="username"  required> <br>
+    <label>Mot de passe</label> <input type="password" formControlName="password"  required> <br>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
 </form>
 <app-recapitulation 
     *ngIf="isValid == true" 
-    [nom]="nom"
-    [prenom]="prenom"
-    [adresse]="adresse"
-    [cp]="cp"
-    [ville]="ville"
-    [pays]="pays"
-    [mel]="mel"
-    [tel]="tel"
-    [civilite]="civilite"
-    [username]="username"
-    [password]="password"
+    [nom]="this.profileForm.get('nom')?.value"  
+    [prenom]="this.profileForm.get('prenom')?.value"
+    [adresse]="this.profileForm.get('adresse')?.value"
+    [cp]="this.profileForm.get('cp')?.value"
+    [ville]="this.profileForm.get('ville')?.value"
+    [pays]="this.profileForm.get('pays')?.value"
+    [mel]="this.profileForm.get('mel')?.value"
+    [tel]="this.profileForm.get('tel')?.value"
+    [civilite]="this.profileForm.get('civilite')?.value"
+    [username]="this.profileForm.get('username')?.value"
+    [password]="this.profileForm.get('password')?.value"  
 ></app-recapitulation>
