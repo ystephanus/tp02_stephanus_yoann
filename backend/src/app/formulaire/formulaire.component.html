@@ -1,16 +1,18 @@
 <p>formulaire works!</p>
-<label>Nom</label><input type="text" [(ngModel)]="nom"><br/>
-<label>Prenom</label><input type="text" [(ngModel)]="prenom"> <br/>
-<label for="">Adresse</label> <input type="text" [(ngModel)]="adresse"><br/>
-<label>Code Postal</label><input type="text" [(ngModel)]="cp"><br/>
-<label for="">Ville</label><input type="text" [(ngModel)]="ville"><br/>
-<label for="">Pays</label><input type="text" [(ngModel)]="pays"><br>
-<label for="">Telephone</label><input type="tel" [(ngModel)]="tel" pattern="[0-9]{10}"><br/>
-<label for="">Mél</label><input type="email" [(ngModel)]="mel"><br/>
-<label for="">Civilité</label><input type="text" [(ngModel)]="civilite"><br/>
-<label for="">Nom utilisateur</label><input type="text" [(ngModel)]="username"><br>
-<label>Mot de passe</label> <input type="password" [(ngModel)]="password"><br>
-<button (click)="submitForm()" >Validation</button>
+<form (ngSubmit)="submitForm()" ngNativeValidate>
+    <label>Nom</label> <input type="text" [(ngModel)]="nom" name="nom" required> <br/>
+    <label>Prenom</label> <input type="text" [(ngModel)]="prenom" name="prenom" required> <br/>
+    <label for="">Adresse</label> <input type="text" [(ngModel)]="adresse" name="adresse" required> <br/>
+    <label>Code Postal</label> <input type="text" [(ngModel)]="cp" name="cp" required> <br/>
+    <label for="">Ville</label> <input type="text" [(ngModel)]="ville" name="ville" required> <br/>
+    <label for="">Pays</label> <input type="text" [(ngModel)]="pays" name="pays" required> <br>
+    <label for="">Telephone</label> <input type="tel" [(ngModel)]="tel" name="tel" pattern="[0-9]{10}" required> <br/>
+    <label for="">Mél</label> <input type="email" email [(ngModel)]="mel" name="mel" required> <br/>
+    <label for="">Civilité</label> <input type="text" [(ngModel)]="civilite" name="civilite" required> <br/>
+    <label for="">Nom utilisateur</label> <input type="text" [(ngModel)]="username" name="username" required> <br>
+    <label>Mot de passe</label> <input type="password" [(ngModel)]="password" name="password" required> <br>
+    <button type="submit">Validation</button>
+</form>
 <app-recapitulation 
     *ngIf="isValid == true" 
     [nom]="nom"
