@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { RecapitulationComponent } from './recapitulation/recapitulation.component';
 import { ErrorsDirective } from './errors.directive';
+import { PhoneNumberPipe } from './phone-number.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ErrorsDirective } from './errors.directive';
     FooterComponent,
     FormulaireComponent,
     RecapitulationComponent,
-    ErrorsDirective
+    ErrorsDirective,
+    PhoneNumberPipe
   ],
   imports: [
     BrowserModule,
