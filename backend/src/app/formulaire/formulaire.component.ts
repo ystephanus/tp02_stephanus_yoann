@@ -9,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class FormulaireComponent implements OnInit {
 
   profileForm = new FormGroup({
-    nom: new FormControl('tet'),
+    nom: new FormControl(''),
     prenom: new FormControl(''),
     adresse: new FormControl(''),
     cp: new FormControl(''),
@@ -20,7 +20,7 @@ export class FormulaireComponent implements OnInit {
     civilite: new FormControl(''),
     username: new FormControl(''),
     password: new FormControl(''),
-  });
+  },{ validators: appErrors });
 
 
   isValid:boolean=false;
@@ -31,6 +31,7 @@ export class FormulaireComponent implements OnInit {
   }
 
   submitForm(){
+    console.log(this.profileForm.controls['tel'].status)
     this.isValid = true;  
   }
 

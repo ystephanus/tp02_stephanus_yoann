@@ -1,17 +1,17 @@
 <p>formulaire works!</p>
 <form (ngSubmit)="submitForm()" [formGroup]="profileForm">
-    <label>Nom</label> <input type="text" formControlName="nom" required><br/>
+    <label>Nom</label> <input type="text" formControlName="nom" name="nom" required><br/>
     <label>Prenom</label> <input type="text" formControlName="prenom"  required> <br/>
     <label for="">Adresse</label> <input type="text" formControlName="adresse" required> <br/>
     <label>Code Postal</label> <input type="text" formControlName="cp"  required> <br/>
     <label for="">Ville</label> <input type="text" formControlName="ville"  required> <br/>
-    <label for="">Pays</label> <input type="text" formControlName="pays"  required> <br>
-    <label for="">Telephone</label> <input type="tel" formControlName="tel"  pattern="[0-9]{10}" required> <br/>
-    <label for="">Mél</label> <input type="email" email formControlName="mel"  required> <br/>
-    <label for="">Civilité</label> <input type="text" formControlName="civilite"  required> <br/>
-    <label for="">Nom utilisateur</label> <input type="text" formControlName="username"  required> <br>
-    <label>Mot de passe</label> <input type="password" formControlName="password"  required> <br>
-    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <label for="">Pays</label> <input type="text" formControlName="pays"  required appErrors> <br>
+    <label for="">Telephone</label> <input type="tel" formControlName="tel"  pattern="[0-9]{10}" *ngIf="this.profileForm.get('tel')?.status == 'INVALID' && appErrors"> <br/>
+    <label for="">Mél</label> <input type="email" email formControlName="mel"  > <br/>
+    <label for="">Civilité</label> <input type="text" formControlName="civilite"  > <br/>
+    <label for="">Nom utilisateur</label> <input type="text" formControlName="username"  > <br>
+    <label>Mot de passe</label> <input type="password" formControlName="password"> <br>
+    <button type="submit" >Submit</button>
 </form>
 <app-recapitulation 
     *ngIf="isValid == true" 
