@@ -33,6 +33,8 @@ export class FormulaireComponent implements OnInit {
   submitForm(){
     if(this.profileForm.valid)    
       this.isValid = true;  
+    else
+      this.isValid = false;
   }
 
 }
