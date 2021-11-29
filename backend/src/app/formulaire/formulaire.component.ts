@@ -20,7 +20,7 @@ export class FormulaireComponent implements OnInit {
     civilite: new FormControl(''),
     username: new FormControl(''),
     password: new FormControl(''),
-  },{ validators: appErrors });
+  });
 
 
   isValid:boolean=false;
@@ -31,8 +31,8 @@ export class FormulaireComponent implements OnInit {
   }
 
   submitForm(){
-    console.log(this.profileForm.controls['tel'].status)
-    this.isValid = true;  
+    if(this.profileForm.valid)    
+      this.isValid = true;  
   }
 
 }

@@ -1,13 +1,19 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appErrors]'
 })
 export class ErrorsDirective {
 
+  @Input() appErrors : boolean =false;
+  private el : ElementRef;
+
   constructor(el: ElementRef) { 
-    console.log(el)
-    el.nativeElement.style.backgroundColor = 'yellow';
+    this.el =el;
+  }
+
+  @HostListener('change') onChange(){
+    this.el.nativeElement.style.backgroundColor = this.appErrors ? 'red': null;
   }
 
 }
