@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 export class ErrorsDirective {
 
-  @Input() appErrors : boolean =false;
+  //@Input() appErrors : boolean =false;
   private el : ElementRef;
 
   constructor(el: ElementRef) { 
@@ -13,7 +13,7 @@ export class ErrorsDirective {
   }
 
   @HostListener('change') onChange(){
-    this.el.nativeElement.style.backgroundColor = this.appErrors ? 'red': null;
+    this.el.nativeElement.style.backgroundColor = this.el.nativeElement.checkValidity() ? null: 'red';
   }
 
 }

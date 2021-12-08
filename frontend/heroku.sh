@@ -8,6 +8,7 @@ cd dist/$dirName
 
 # First Use
 heroku login
+heroku apps:destroy --confirm $repoName
 heroku create $repoName
 
 git init
